@@ -1,0 +1,10 @@
+#!/bin/bash -l
+#SBATCH --job-name="gas3D_50%"
+#SBATCH --tasks=40
+#SBATCH --partition=general
+#SBATCH --time=48:00:00
+## Load Compiler and Program Modules
+module load gnu/8.2.0 openmpi/3.1.3_gnu8.2 anaconda/2.7 netcdf moose
+#export LD_LIBRARY_PATH=/nfs/home/4/ylei/FORTRAN_OOP/lib/:$LD_LIBRARY_PATH
+## Run the parallel job. Redirect the program's output to out
+mpirun ../../coarsening-opt -i TwoSphere.i 2>&1 > out  
