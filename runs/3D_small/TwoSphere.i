@@ -1,10 +1,10 @@
 [Mesh]
    type = GeneratedMesh
    dim = 3
-   nx = 64
-   ny = 64
-   nz = 64
-  
+   nx = 16
+   ny = 16
+   nz = 16
+
    xmax = 64
    ymax = 64
    zmax = 64
@@ -188,7 +188,7 @@
   #type = Steady
   solve_type = 'PJFNK'
   #solve_type = 'JFNK'
-  num_steps = 1000
+  num_steps = 5
   petsc_options_iname = '-pc_type -pc_hypre_type -ksp_grmes_restart'
   petsc_options_value = 'hypre    boomeramg  101 '
 
@@ -215,18 +215,9 @@
 []
 
 [Outputs]
-
-  [./pgraph]
-     type = PerfGraphOutput
-     execute_on = 'timestep_end'
-     level = 2
-     heaviest_branch = true
-     heaviest_sections = 7
-  [../]
-
   [./console]
     type = Console
-    interval = 1 
+    interval = 1
   [../]
   [./exodus]
     type = Exodus
